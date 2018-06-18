@@ -1,10 +1,17 @@
-# import Post from "./generated/prisma.graphql"
+# import Pokemon from "./generated/prisma.graphql"
 
 type Query {
   feed: [Post!]!
   drafts: [Post!]!
   post(id: ID!): Post
   me: User
+
+  allPokemons(limit: Int): [Pokemon]!
+  pokemon(id: ID!): Pokemon
+}
+
+input CreateTeamInput {
+  name: String!
 }
 
 type Mutation {
@@ -13,6 +20,8 @@ type Mutation {
   createDraft(title: String!, text: String!): Post!
   publish(id: ID!): Post!
   deletePost(id: ID!): Post!
+
+  createTeam(input: CreateTeamInput!): Team!
 }
 
 type Subscription {

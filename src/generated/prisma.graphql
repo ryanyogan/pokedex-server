@@ -1,7 +1,19 @@
-# source: https://us1.prisma.sh/public-typhoonllama-206/pokedex-server/dev
-# timestamp: Sun Jun 17 2018 20:30:19 GMT-0700 (PDT)
+# source: https://us1.prisma.sh/ryan-yogan/pokedex/dev
+# timestamp: Sun Jun 17 2018 20:53:33 GMT-0700 (PDT)
+
+type AggregateDamage {
+  count: Int!
+}
+
+type AggregatePokemon {
+  count: Int!
+}
 
 type AggregatePost {
+  count: Int!
+}
+
+type AggregateTeam {
   count: Int!
 }
 
@@ -10,8 +22,1384 @@ type AggregateUser {
 }
 
 type BatchPayload {
-  """The number of nodes that have been affected by the Batch operation."""
+  """
+  The number of nodes that have been affected by the Batch operation.
+  """
   count: Long!
+}
+
+type Damage {
+  normal: String
+  fire: String
+  water: String
+  electric: String
+  grass: String
+  ice: String
+  fight: String
+  poison: String
+  ground: String
+  flying: String
+  psychic: String
+  bug: String
+  rock: String
+  ghost: String
+  dragon: String
+  dark: String
+  steel: String
+}
+
+"""
+A connection to a list of items.
+"""
+type DamageConnection {
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  A list of edges.
+  """
+  edges: [DamageEdge]!
+  aggregate: AggregateDamage!
+}
+
+input DamageCreateInput {
+  normal: String
+  fire: String
+  water: String
+  electric: String
+  grass: String
+  ice: String
+  fight: String
+  poison: String
+  ground: String
+  flying: String
+  psychic: String
+  bug: String
+  rock: String
+  ghost: String
+  dragon: String
+  dark: String
+  steel: String
+}
+
+input DamageCreateOneInput {
+  create: DamageCreateInput
+}
+
+"""
+An edge in a connection.
+"""
+type DamageEdge {
+  """
+  The item at the end of the edge.
+  """
+  node: Damage!
+
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+}
+
+enum DamageOrderByInput {
+  normal_ASC
+  normal_DESC
+  fire_ASC
+  fire_DESC
+  water_ASC
+  water_DESC
+  electric_ASC
+  electric_DESC
+  grass_ASC
+  grass_DESC
+  ice_ASC
+  ice_DESC
+  fight_ASC
+  fight_DESC
+  poison_ASC
+  poison_DESC
+  ground_ASC
+  ground_DESC
+  flying_ASC
+  flying_DESC
+  psychic_ASC
+  psychic_DESC
+  bug_ASC
+  bug_DESC
+  rock_ASC
+  rock_DESC
+  ghost_ASC
+  ghost_DESC
+  dragon_ASC
+  dragon_DESC
+  dark_ASC
+  dark_DESC
+  steel_ASC
+  steel_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type DamagePreviousValues {
+  normal: String
+  fire: String
+  water: String
+  electric: String
+  grass: String
+  ice: String
+  fight: String
+  poison: String
+  ground: String
+  flying: String
+  psychic: String
+  bug: String
+  rock: String
+  ghost: String
+  dragon: String
+  dark: String
+  steel: String
+}
+
+type DamageSubscriptionPayload {
+  mutation: MutationType!
+  node: Damage
+  updatedFields: [String!]
+  previousValues: DamagePreviousValues
+}
+
+input DamageSubscriptionWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [DamageSubscriptionWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [DamageSubscriptionWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [DamageSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: DamageWhereInput
+}
+
+input DamageUpdateDataInput {
+  normal: String
+  fire: String
+  water: String
+  electric: String
+  grass: String
+  ice: String
+  fight: String
+  poison: String
+  ground: String
+  flying: String
+  psychic: String
+  bug: String
+  rock: String
+  ghost: String
+  dragon: String
+  dark: String
+  steel: String
+}
+
+input DamageUpdateInput {
+  normal: String
+  fire: String
+  water: String
+  electric: String
+  grass: String
+  ice: String
+  fight: String
+  poison: String
+  ground: String
+  flying: String
+  psychic: String
+  bug: String
+  rock: String
+  ghost: String
+  dragon: String
+  dark: String
+  steel: String
+}
+
+input DamageUpdateOneInput {
+  create: DamageCreateInput
+  delete: Boolean
+  update: DamageUpdateDataInput
+  upsert: DamageUpsertNestedInput
+}
+
+input DamageUpsertNestedInput {
+  update: DamageUpdateDataInput!
+  create: DamageCreateInput!
+}
+
+input DamageWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [DamageWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [DamageWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [DamageWhereInput!]
+  normal: String
+
+  """
+  All values that are not equal to given value.
+  """
+  normal_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  normal_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  normal_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  normal_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  normal_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  normal_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  normal_gte: String
+
+  """
+  All values containing the given string.
+  """
+  normal_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  normal_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  normal_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  normal_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  normal_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  normal_not_ends_with: String
+  fire: String
+
+  """
+  All values that are not equal to given value.
+  """
+  fire_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  fire_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  fire_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  fire_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  fire_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  fire_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  fire_gte: String
+
+  """
+  All values containing the given string.
+  """
+  fire_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  fire_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  fire_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  fire_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  fire_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  fire_not_ends_with: String
+  water: String
+
+  """
+  All values that are not equal to given value.
+  """
+  water_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  water_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  water_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  water_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  water_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  water_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  water_gte: String
+
+  """
+  All values containing the given string.
+  """
+  water_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  water_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  water_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  water_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  water_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  water_not_ends_with: String
+  electric: String
+
+  """
+  All values that are not equal to given value.
+  """
+  electric_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  electric_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  electric_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  electric_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  electric_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  electric_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  electric_gte: String
+
+  """
+  All values containing the given string.
+  """
+  electric_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  electric_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  electric_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  electric_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  electric_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  electric_not_ends_with: String
+  grass: String
+
+  """
+  All values that are not equal to given value.
+  """
+  grass_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  grass_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  grass_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  grass_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  grass_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  grass_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  grass_gte: String
+
+  """
+  All values containing the given string.
+  """
+  grass_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  grass_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  grass_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  grass_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  grass_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  grass_not_ends_with: String
+  ice: String
+
+  """
+  All values that are not equal to given value.
+  """
+  ice_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  ice_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  ice_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  ice_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  ice_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  ice_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  ice_gte: String
+
+  """
+  All values containing the given string.
+  """
+  ice_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  ice_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  ice_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  ice_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  ice_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  ice_not_ends_with: String
+  fight: String
+
+  """
+  All values that are not equal to given value.
+  """
+  fight_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  fight_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  fight_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  fight_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  fight_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  fight_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  fight_gte: String
+
+  """
+  All values containing the given string.
+  """
+  fight_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  fight_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  fight_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  fight_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  fight_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  fight_not_ends_with: String
+  poison: String
+
+  """
+  All values that are not equal to given value.
+  """
+  poison_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  poison_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  poison_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  poison_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  poison_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  poison_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  poison_gte: String
+
+  """
+  All values containing the given string.
+  """
+  poison_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  poison_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  poison_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  poison_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  poison_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  poison_not_ends_with: String
+  ground: String
+
+  """
+  All values that are not equal to given value.
+  """
+  ground_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  ground_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  ground_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  ground_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  ground_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  ground_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  ground_gte: String
+
+  """
+  All values containing the given string.
+  """
+  ground_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  ground_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  ground_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  ground_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  ground_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  ground_not_ends_with: String
+  flying: String
+
+  """
+  All values that are not equal to given value.
+  """
+  flying_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  flying_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  flying_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  flying_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  flying_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  flying_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  flying_gte: String
+
+  """
+  All values containing the given string.
+  """
+  flying_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  flying_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  flying_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  flying_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  flying_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  flying_not_ends_with: String
+  psychic: String
+
+  """
+  All values that are not equal to given value.
+  """
+  psychic_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  psychic_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  psychic_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  psychic_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  psychic_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  psychic_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  psychic_gte: String
+
+  """
+  All values containing the given string.
+  """
+  psychic_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  psychic_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  psychic_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  psychic_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  psychic_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  psychic_not_ends_with: String
+  bug: String
+
+  """
+  All values that are not equal to given value.
+  """
+  bug_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  bug_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  bug_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  bug_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  bug_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  bug_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  bug_gte: String
+
+  """
+  All values containing the given string.
+  """
+  bug_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  bug_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  bug_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  bug_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  bug_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  bug_not_ends_with: String
+  rock: String
+
+  """
+  All values that are not equal to given value.
+  """
+  rock_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  rock_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  rock_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  rock_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  rock_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  rock_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  rock_gte: String
+
+  """
+  All values containing the given string.
+  """
+  rock_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  rock_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  rock_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  rock_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  rock_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  rock_not_ends_with: String
+  ghost: String
+
+  """
+  All values that are not equal to given value.
+  """
+  ghost_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  ghost_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  ghost_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  ghost_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  ghost_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  ghost_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  ghost_gte: String
+
+  """
+  All values containing the given string.
+  """
+  ghost_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  ghost_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  ghost_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  ghost_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  ghost_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  ghost_not_ends_with: String
+  dragon: String
+
+  """
+  All values that are not equal to given value.
+  """
+  dragon_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  dragon_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  dragon_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  dragon_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  dragon_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  dragon_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  dragon_gte: String
+
+  """
+  All values containing the given string.
+  """
+  dragon_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  dragon_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  dragon_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  dragon_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  dragon_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  dragon_not_ends_with: String
+  dark: String
+
+  """
+  All values that are not equal to given value.
+  """
+  dark_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  dark_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  dark_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  dark_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  dark_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  dark_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  dark_gte: String
+
+  """
+  All values containing the given string.
+  """
+  dark_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  dark_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  dark_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  dark_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  dark_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  dark_not_ends_with: String
+  steel: String
+
+  """
+  All values that are not equal to given value.
+  """
+  steel_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  steel_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  steel_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  steel_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  steel_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  steel_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  steel_gte: String
+
+  """
+  All values containing the given string.
+  """
+  steel_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  steel_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  steel_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  steel_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  steel_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  steel_not_ends_with: String
 }
 
 scalar DateTime
@@ -25,16 +1413,56 @@ scalar Long
 type Mutation {
   createPost(data: PostCreateInput!): Post!
   createUser(data: UserCreateInput!): User!
+  createTeam(data: TeamCreateInput!): Team!
+  createPokemon(data: PokemonCreateInput!): Pokemon!
+  createDamage(data: DamageCreateInput!): Damage!
   updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateTeam(data: TeamUpdateInput!, where: TeamWhereUniqueInput!): Team
+  updatePokemon(
+    data: PokemonUpdateInput!
+    where: PokemonWhereUniqueInput!
+  ): Pokemon
   deletePost(where: PostWhereUniqueInput!): Post
   deleteUser(where: UserWhereUniqueInput!): User
-  upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
-  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteTeam(where: TeamWhereUniqueInput!): Team
+  deletePokemon(where: PokemonWhereUniqueInput!): Pokemon
+  upsertPost(
+    where: PostWhereUniqueInput!
+    create: PostCreateInput!
+    update: PostUpdateInput!
+  ): Post!
+  upsertUser(
+    where: UserWhereUniqueInput!
+    create: UserCreateInput!
+    update: UserUpdateInput!
+  ): User!
+  upsertTeam(
+    where: TeamWhereUniqueInput!
+    create: TeamCreateInput!
+    update: TeamUpdateInput!
+  ): Team!
+  upsertPokemon(
+    where: PokemonWhereUniqueInput!
+    create: PokemonCreateInput!
+    update: PokemonUpdateInput!
+  ): Pokemon!
   updateManyPosts(data: PostUpdateInput!, where: PostWhereInput): BatchPayload!
   updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
+  updateManyTeams(data: TeamUpdateInput!, where: TeamWhereInput): BatchPayload!
+  updateManyPokemons(
+    data: PokemonUpdateInput!
+    where: PokemonWhereInput
+  ): BatchPayload!
+  updateManyDamages(
+    data: DamageUpdateInput!
+    where: DamageWhereInput
+  ): BatchPayload!
   deleteManyPosts(where: PostWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
+  deleteManyTeams(where: TeamWhereInput): BatchPayload!
+  deleteManyPokemons(where: PokemonWhereInput): BatchPayload!
+  deleteManyDamages(where: DamageWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -43,25 +1471,710 @@ enum MutationType {
   DELETED
 }
 
-"""An object with an ID"""
+"""
+An object with an ID
+"""
 interface Node {
-  """The id of the object."""
+  """
+  The id of the object.
+  """
   id: ID!
 }
 
-"""Information about pagination in a connection."""
+"""
+Information about pagination in a connection.
+"""
 type PageInfo {
-  """When paginating forwards, are there more items?"""
+  """
+  When paginating forwards, are there more items?
+  """
   hasNextPage: Boolean!
 
-  """When paginating backwards, are there more items?"""
+  """
+  When paginating backwards, are there more items?
+  """
   hasPreviousPage: Boolean!
 
-  """When paginating backwards, the cursor to continue."""
+  """
+  When paginating backwards, the cursor to continue.
+  """
   startCursor: String
 
-  """When paginating forwards, the cursor to continue."""
+  """
+  When paginating forwards, the cursor to continue.
+  """
   endCursor: String
+}
+
+type Pokemon implements Node {
+  id: ID!
+  name: String!
+  classification: String!
+  img: String!
+  type: [String!]
+  height: String!
+  weight: String!
+  happiness: String!
+  damages(where: DamageWhereInput): Damage!
+}
+
+"""
+A connection to a list of items.
+"""
+type PokemonConnection {
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  A list of edges.
+  """
+  edges: [PokemonEdge]!
+  aggregate: AggregatePokemon!
+}
+
+input PokemonCreateInput {
+  name: String!
+  classification: String!
+  img: String!
+  height: String!
+  weight: String!
+  happiness: String!
+  type: PokemonCreatetypeInput
+  damages: DamageCreateOneInput!
+}
+
+input PokemonCreateManyInput {
+  create: [PokemonCreateInput!]
+  connect: [PokemonWhereUniqueInput!]
+}
+
+input PokemonCreatetypeInput {
+  set: [String!]
+}
+
+"""
+An edge in a connection.
+"""
+type PokemonEdge {
+  """
+  The item at the end of the edge.
+  """
+  node: Pokemon!
+
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+}
+
+enum PokemonOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  classification_ASC
+  classification_DESC
+  img_ASC
+  img_DESC
+  height_ASC
+  height_DESC
+  weight_ASC
+  weight_DESC
+  happiness_ASC
+  happiness_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type PokemonPreviousValues {
+  id: ID!
+  name: String!
+  classification: String!
+  img: String!
+  type: [String!]
+  height: String!
+  weight: String!
+  happiness: String!
+}
+
+type PokemonSubscriptionPayload {
+  mutation: MutationType!
+  node: Pokemon
+  updatedFields: [String!]
+  previousValues: PokemonPreviousValues
+}
+
+input PokemonSubscriptionWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [PokemonSubscriptionWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [PokemonSubscriptionWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [PokemonSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: PokemonWhereInput
+}
+
+input PokemonUpdateDataInput {
+  name: String
+  classification: String
+  img: String
+  height: String
+  weight: String
+  happiness: String
+  type: PokemonUpdatetypeInput
+  damages: DamageUpdateOneInput
+}
+
+input PokemonUpdateInput {
+  name: String
+  classification: String
+  img: String
+  height: String
+  weight: String
+  happiness: String
+  type: PokemonUpdatetypeInput
+  damages: DamageUpdateOneInput
+}
+
+input PokemonUpdateManyInput {
+  create: [PokemonCreateInput!]
+  connect: [PokemonWhereUniqueInput!]
+  disconnect: [PokemonWhereUniqueInput!]
+  delete: [PokemonWhereUniqueInput!]
+  update: [PokemonUpdateWithWhereUniqueNestedInput!]
+  upsert: [PokemonUpsertWithWhereUniqueNestedInput!]
+}
+
+input PokemonUpdatetypeInput {
+  set: [String!]
+}
+
+input PokemonUpdateWithWhereUniqueNestedInput {
+  where: PokemonWhereUniqueInput!
+  data: PokemonUpdateDataInput!
+}
+
+input PokemonUpsertWithWhereUniqueNestedInput {
+  where: PokemonWhereUniqueInput!
+  update: PokemonUpdateDataInput!
+  create: PokemonCreateInput!
+}
+
+input PokemonWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [PokemonWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [PokemonWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [PokemonWhereInput!]
+  id: ID
+
+  """
+  All values that are not equal to given value.
+  """
+  id_not: ID
+
+  """
+  All values that are contained in given list.
+  """
+  id_in: [ID!]
+
+  """
+  All values that are not contained in given list.
+  """
+  id_not_in: [ID!]
+
+  """
+  All values less than the given value.
+  """
+  id_lt: ID
+
+  """
+  All values less than or equal the given value.
+  """
+  id_lte: ID
+
+  """
+  All values greater than the given value.
+  """
+  id_gt: ID
+
+  """
+  All values greater than or equal the given value.
+  """
+  id_gte: ID
+
+  """
+  All values containing the given string.
+  """
+  id_contains: ID
+
+  """
+  All values not containing the given string.
+  """
+  id_not_contains: ID
+
+  """
+  All values starting with the given string.
+  """
+  id_starts_with: ID
+
+  """
+  All values not starting with the given string.
+  """
+  id_not_starts_with: ID
+
+  """
+  All values ending with the given string.
+  """
+  id_ends_with: ID
+
+  """
+  All values not ending with the given string.
+  """
+  id_not_ends_with: ID
+  name: String
+
+  """
+  All values that are not equal to given value.
+  """
+  name_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  name_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  name_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  name_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  name_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  name_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  name_gte: String
+
+  """
+  All values containing the given string.
+  """
+  name_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  name_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  name_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  name_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  name_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  name_not_ends_with: String
+  classification: String
+
+  """
+  All values that are not equal to given value.
+  """
+  classification_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  classification_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  classification_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  classification_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  classification_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  classification_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  classification_gte: String
+
+  """
+  All values containing the given string.
+  """
+  classification_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  classification_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  classification_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  classification_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  classification_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  classification_not_ends_with: String
+  img: String
+
+  """
+  All values that are not equal to given value.
+  """
+  img_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  img_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  img_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  img_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  img_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  img_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  img_gte: String
+
+  """
+  All values containing the given string.
+  """
+  img_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  img_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  img_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  img_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  img_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  img_not_ends_with: String
+  height: String
+
+  """
+  All values that are not equal to given value.
+  """
+  height_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  height_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  height_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  height_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  height_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  height_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  height_gte: String
+
+  """
+  All values containing the given string.
+  """
+  height_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  height_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  height_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  height_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  height_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  height_not_ends_with: String
+  weight: String
+
+  """
+  All values that are not equal to given value.
+  """
+  weight_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  weight_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  weight_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  weight_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  weight_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  weight_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  weight_gte: String
+
+  """
+  All values containing the given string.
+  """
+  weight_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  weight_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  weight_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  weight_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  weight_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  weight_not_ends_with: String
+  happiness: String
+
+  """
+  All values that are not equal to given value.
+  """
+  happiness_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  happiness_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  happiness_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  happiness_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  happiness_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  happiness_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  happiness_gte: String
+
+  """
+  All values containing the given string.
+  """
+  happiness_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  happiness_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  happiness_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  happiness_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  happiness_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  happiness_not_ends_with: String
+  damages: DamageWhereInput
+}
+
+input PokemonWhereUniqueInput {
+  id: ID
+  name: String
 }
 
 type Post implements Node {
@@ -74,12 +2187,18 @@ type Post implements Node {
   author(where: UserWhereInput): User!
 }
 
-"""A connection to a list of items."""
+"""
+A connection to a list of items.
+"""
 type PostConnection {
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
-  """A list of edges."""
+  """
+  A list of edges.
+  """
   edges: [PostEdge]!
   aggregate: AggregatePost!
 }
@@ -102,12 +2221,18 @@ input PostCreateWithoutAuthorInput {
   text: String!
 }
 
-"""An edge in a connection."""
+"""
+An edge in a connection.
+"""
 type PostEdge {
-  """The item at the end of the edge."""
+  """
+  The item at the end of the edge.
+  """
   node: Post!
 
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: String!
 }
 
@@ -143,13 +2268,19 @@ type PostSubscriptionPayload {
 }
 
 input PostSubscriptionWhereInput {
-  """Logical AND on all given filters."""
+  """
+  Logical AND on all given filters.
+  """
   AND: [PostSubscriptionWhereInput!]
 
-  """Logical OR on all given filters."""
+  """
+  Logical OR on all given filters.
+  """
   OR: [PostSubscriptionWhereInput!]
 
-  """Logical NOT on all given filters combined by AND."""
+  """
+  Logical NOT on all given filters combined by AND.
+  """
   NOT: [PostSubscriptionWhereInput!]
 
   """
@@ -208,181 +2339,295 @@ input PostUpsertWithWhereUniqueWithoutAuthorInput {
 }
 
 input PostWhereInput {
-  """Logical AND on all given filters."""
+  """
+  Logical AND on all given filters.
+  """
   AND: [PostWhereInput!]
 
-  """Logical OR on all given filters."""
+  """
+  Logical OR on all given filters.
+  """
   OR: [PostWhereInput!]
 
-  """Logical NOT on all given filters combined by AND."""
+  """
+  Logical NOT on all given filters combined by AND.
+  """
   NOT: [PostWhereInput!]
   id: ID
 
-  """All values that are not equal to given value."""
+  """
+  All values that are not equal to given value.
+  """
   id_not: ID
 
-  """All values that are contained in given list."""
+  """
+  All values that are contained in given list.
+  """
   id_in: [ID!]
 
-  """All values that are not contained in given list."""
+  """
+  All values that are not contained in given list.
+  """
   id_not_in: [ID!]
 
-  """All values less than the given value."""
+  """
+  All values less than the given value.
+  """
   id_lt: ID
 
-  """All values less than or equal the given value."""
+  """
+  All values less than or equal the given value.
+  """
   id_lte: ID
 
-  """All values greater than the given value."""
+  """
+  All values greater than the given value.
+  """
   id_gt: ID
 
-  """All values greater than or equal the given value."""
+  """
+  All values greater than or equal the given value.
+  """
   id_gte: ID
 
-  """All values containing the given string."""
+  """
+  All values containing the given string.
+  """
   id_contains: ID
 
-  """All values not containing the given string."""
+  """
+  All values not containing the given string.
+  """
   id_not_contains: ID
 
-  """All values starting with the given string."""
+  """
+  All values starting with the given string.
+  """
   id_starts_with: ID
 
-  """All values not starting with the given string."""
+  """
+  All values not starting with the given string.
+  """
   id_not_starts_with: ID
 
-  """All values ending with the given string."""
+  """
+  All values ending with the given string.
+  """
   id_ends_with: ID
 
-  """All values not ending with the given string."""
+  """
+  All values not ending with the given string.
+  """
   id_not_ends_with: ID
   createdAt: DateTime
 
-  """All values that are not equal to given value."""
+  """
+  All values that are not equal to given value.
+  """
   createdAt_not: DateTime
 
-  """All values that are contained in given list."""
+  """
+  All values that are contained in given list.
+  """
   createdAt_in: [DateTime!]
 
-  """All values that are not contained in given list."""
+  """
+  All values that are not contained in given list.
+  """
   createdAt_not_in: [DateTime!]
 
-  """All values less than the given value."""
+  """
+  All values less than the given value.
+  """
   createdAt_lt: DateTime
 
-  """All values less than or equal the given value."""
+  """
+  All values less than or equal the given value.
+  """
   createdAt_lte: DateTime
 
-  """All values greater than the given value."""
+  """
+  All values greater than the given value.
+  """
   createdAt_gt: DateTime
 
-  """All values greater than or equal the given value."""
+  """
+  All values greater than or equal the given value.
+  """
   createdAt_gte: DateTime
   updatedAt: DateTime
 
-  """All values that are not equal to given value."""
+  """
+  All values that are not equal to given value.
+  """
   updatedAt_not: DateTime
 
-  """All values that are contained in given list."""
+  """
+  All values that are contained in given list.
+  """
   updatedAt_in: [DateTime!]
 
-  """All values that are not contained in given list."""
+  """
+  All values that are not contained in given list.
+  """
   updatedAt_not_in: [DateTime!]
 
-  """All values less than the given value."""
+  """
+  All values less than the given value.
+  """
   updatedAt_lt: DateTime
 
-  """All values less than or equal the given value."""
+  """
+  All values less than or equal the given value.
+  """
   updatedAt_lte: DateTime
 
-  """All values greater than the given value."""
+  """
+  All values greater than the given value.
+  """
   updatedAt_gt: DateTime
 
-  """All values greater than or equal the given value."""
+  """
+  All values greater than or equal the given value.
+  """
   updatedAt_gte: DateTime
   isPublished: Boolean
 
-  """All values that are not equal to given value."""
+  """
+  All values that are not equal to given value.
+  """
   isPublished_not: Boolean
   title: String
 
-  """All values that are not equal to given value."""
+  """
+  All values that are not equal to given value.
+  """
   title_not: String
 
-  """All values that are contained in given list."""
+  """
+  All values that are contained in given list.
+  """
   title_in: [String!]
 
-  """All values that are not contained in given list."""
+  """
+  All values that are not contained in given list.
+  """
   title_not_in: [String!]
 
-  """All values less than the given value."""
+  """
+  All values less than the given value.
+  """
   title_lt: String
 
-  """All values less than or equal the given value."""
+  """
+  All values less than or equal the given value.
+  """
   title_lte: String
 
-  """All values greater than the given value."""
+  """
+  All values greater than the given value.
+  """
   title_gt: String
 
-  """All values greater than or equal the given value."""
+  """
+  All values greater than or equal the given value.
+  """
   title_gte: String
 
-  """All values containing the given string."""
+  """
+  All values containing the given string.
+  """
   title_contains: String
 
-  """All values not containing the given string."""
+  """
+  All values not containing the given string.
+  """
   title_not_contains: String
 
-  """All values starting with the given string."""
+  """
+  All values starting with the given string.
+  """
   title_starts_with: String
 
-  """All values not starting with the given string."""
+  """
+  All values not starting with the given string.
+  """
   title_not_starts_with: String
 
-  """All values ending with the given string."""
+  """
+  All values ending with the given string.
+  """
   title_ends_with: String
 
-  """All values not ending with the given string."""
+  """
+  All values not ending with the given string.
+  """
   title_not_ends_with: String
   text: String
 
-  """All values that are not equal to given value."""
+  """
+  All values that are not equal to given value.
+  """
   text_not: String
 
-  """All values that are contained in given list."""
+  """
+  All values that are contained in given list.
+  """
   text_in: [String!]
 
-  """All values that are not contained in given list."""
+  """
+  All values that are not contained in given list.
+  """
   text_not_in: [String!]
 
-  """All values less than the given value."""
+  """
+  All values less than the given value.
+  """
   text_lt: String
 
-  """All values less than or equal the given value."""
+  """
+  All values less than or equal the given value.
+  """
   text_lte: String
 
-  """All values greater than the given value."""
+  """
+  All values greater than the given value.
+  """
   text_gt: String
 
-  """All values greater than or equal the given value."""
+  """
+  All values greater than or equal the given value.
+  """
   text_gte: String
 
-  """All values containing the given string."""
+  """
+  All values containing the given string.
+  """
   text_contains: String
 
-  """All values not containing the given string."""
+  """
+  All values not containing the given string.
+  """
   text_not_contains: String
 
-  """All values starting with the given string."""
+  """
+  All values starting with the given string.
+  """
   text_starts_with: String
 
-  """All values not starting with the given string."""
+  """
+  All values not starting with the given string.
+  """
   text_not_starts_with: String
 
-  """All values ending with the given string."""
+  """
+  All values ending with the given string.
+  """
   text_ends_with: String
 
-  """All values not ending with the given string."""
+  """
+  All values not ending with the given string.
+  """
   text_not_ends_with: String
   author: UserWhereInput
 }
@@ -392,16 +2637,108 @@ input PostWhereUniqueInput {
 }
 
 type Query {
-  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
-  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  posts(
+    where: PostWhereInput
+    orderBy: PostOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Post]!
+  users(
+    where: UserWhereInput
+    orderBy: UserOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [User]!
+  teams(
+    where: TeamWhereInput
+    orderBy: TeamOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Team]!
+  pokemons(
+    where: PokemonWhereInput
+    orderBy: PokemonOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Pokemon]!
+  damages(
+    where: DamageWhereInput
+    orderBy: DamageOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Damage]!
   post(where: PostWhereUniqueInput!): Post
   user(where: UserWhereUniqueInput!): User
-  postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
-  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  team(where: TeamWhereUniqueInput!): Team
+  pokemon(where: PokemonWhereUniqueInput!): Pokemon
+  postsConnection(
+    where: PostWhereInput
+    orderBy: PostOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): PostConnection!
+  usersConnection(
+    where: UserWhereInput
+    orderBy: UserOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): UserConnection!
+  teamsConnection(
+    where: TeamWhereInput
+    orderBy: TeamOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): TeamConnection!
+  pokemonsConnection(
+    where: PokemonWhereInput
+    orderBy: PokemonOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): PokemonConnection!
+  damagesConnection(
+    where: DamageWhereInput
+    orderBy: DamageOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): DamageConnection!
 
-  """Fetches an object given its ID"""
+  """
+  Fetches an object given its ID
+  """
   node(
-    """The ID of an object"""
+    """
+    The ID of an object
+    """
     id: ID!
   ): Node
 }
@@ -409,6 +2746,286 @@ type Query {
 type Subscription {
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+  team(where: TeamSubscriptionWhereInput): TeamSubscriptionPayload
+  pokemon(where: PokemonSubscriptionWhereInput): PokemonSubscriptionPayload
+  damage(where: DamageSubscriptionWhereInput): DamageSubscriptionPayload
+}
+
+type Team implements Node {
+  id: ID!
+  name: String!
+  pokemons(
+    where: PokemonWhereInput
+    orderBy: PokemonOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Pokemon!]
+  owner(where: UserWhereInput): User
+}
+
+"""
+A connection to a list of items.
+"""
+type TeamConnection {
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  A list of edges.
+  """
+  edges: [TeamEdge]!
+  aggregate: AggregateTeam!
+}
+
+input TeamCreateInput {
+  name: String!
+  pokemons: PokemonCreateManyInput
+  owner: UserCreateOneInput
+}
+
+"""
+An edge in a connection.
+"""
+type TeamEdge {
+  """
+  The item at the end of the edge.
+  """
+  node: Team!
+
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+}
+
+enum TeamOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type TeamPreviousValues {
+  id: ID!
+  name: String!
+}
+
+type TeamSubscriptionPayload {
+  mutation: MutationType!
+  node: Team
+  updatedFields: [String!]
+  previousValues: TeamPreviousValues
+}
+
+input TeamSubscriptionWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [TeamSubscriptionWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [TeamSubscriptionWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [TeamSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: TeamWhereInput
+}
+
+input TeamUpdateInput {
+  name: String
+  pokemons: PokemonUpdateManyInput
+  owner: UserUpdateOneInput
+}
+
+input TeamWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [TeamWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [TeamWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [TeamWhereInput!]
+  id: ID
+
+  """
+  All values that are not equal to given value.
+  """
+  id_not: ID
+
+  """
+  All values that are contained in given list.
+  """
+  id_in: [ID!]
+
+  """
+  All values that are not contained in given list.
+  """
+  id_not_in: [ID!]
+
+  """
+  All values less than the given value.
+  """
+  id_lt: ID
+
+  """
+  All values less than or equal the given value.
+  """
+  id_lte: ID
+
+  """
+  All values greater than the given value.
+  """
+  id_gt: ID
+
+  """
+  All values greater than or equal the given value.
+  """
+  id_gte: ID
+
+  """
+  All values containing the given string.
+  """
+  id_contains: ID
+
+  """
+  All values not containing the given string.
+  """
+  id_not_contains: ID
+
+  """
+  All values starting with the given string.
+  """
+  id_starts_with: ID
+
+  """
+  All values not starting with the given string.
+  """
+  id_not_starts_with: ID
+
+  """
+  All values ending with the given string.
+  """
+  id_ends_with: ID
+
+  """
+  All values not ending with the given string.
+  """
+  id_not_ends_with: ID
+  name: String
+
+  """
+  All values that are not equal to given value.
+  """
+  name_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  name_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  name_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  name_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  name_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  name_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  name_gte: String
+
+  """
+  All values containing the given string.
+  """
+  name_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  name_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  name_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  name_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  name_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  name_not_ends_with: String
+  pokemons_every: PokemonWhereInput
+  pokemons_some: PokemonWhereInput
+  pokemons_none: PokemonWhereInput
+  owner: UserWhereInput
+}
+
+input TeamWhereUniqueInput {
+  id: ID
+  name: String
 }
 
 type User implements Node {
@@ -416,15 +3033,29 @@ type User implements Node {
   email: String!
   password: String!
   name: String!
-  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
+  posts(
+    where: PostWhereInput
+    orderBy: PostOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Post!]
 }
 
-"""A connection to a list of items."""
+"""
+A connection to a list of items.
+"""
 type UserConnection {
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
-  """A list of edges."""
+  """
+  A list of edges.
+  """
   edges: [UserEdge]!
   aggregate: AggregateUser!
 }
@@ -434,6 +3065,11 @@ input UserCreateInput {
   password: String!
   name: String!
   posts: PostCreateManyWithoutAuthorInput
+}
+
+input UserCreateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
 }
 
 input UserCreateOneWithoutPostsInput {
@@ -447,12 +3083,18 @@ input UserCreateWithoutPostsInput {
   name: String!
 }
 
-"""An edge in a connection."""
+"""
+An edge in a connection.
+"""
 type UserEdge {
-  """The item at the end of the edge."""
+  """
+  The item at the end of the edge.
+  """
   node: User!
 
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: String!
 }
 
@@ -486,13 +3128,19 @@ type UserSubscriptionPayload {
 }
 
 input UserSubscriptionWhereInput {
-  """Logical AND on all given filters."""
+  """
+  Logical AND on all given filters.
+  """
   AND: [UserSubscriptionWhereInput!]
 
-  """Logical OR on all given filters."""
+  """
+  Logical OR on all given filters.
+  """
   OR: [UserSubscriptionWhereInput!]
 
-  """Logical NOT on all given filters combined by AND."""
+  """
+  Logical NOT on all given filters combined by AND.
+  """
   NOT: [UserSubscriptionWhereInput!]
 
   """
@@ -517,11 +3165,27 @@ input UserSubscriptionWhereInput {
   node: UserWhereInput
 }
 
+input UserUpdateDataInput {
+  email: String
+  password: String
+  name: String
+  posts: PostUpdateManyWithoutAuthorInput
+}
+
 input UserUpdateInput {
   email: String
   password: String
   name: String
   posts: PostUpdateManyWithoutAuthorInput
+}
+
+input UserUpdateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
 }
 
 input UserUpdateOneWithoutPostsInput {
@@ -538,179 +3202,294 @@ input UserUpdateWithoutPostsDataInput {
   name: String
 }
 
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
+}
+
 input UserUpsertWithoutPostsInput {
   update: UserUpdateWithoutPostsDataInput!
   create: UserCreateWithoutPostsInput!
 }
 
 input UserWhereInput {
-  """Logical AND on all given filters."""
+  """
+  Logical AND on all given filters.
+  """
   AND: [UserWhereInput!]
 
-  """Logical OR on all given filters."""
+  """
+  Logical OR on all given filters.
+  """
   OR: [UserWhereInput!]
 
-  """Logical NOT on all given filters combined by AND."""
+  """
+  Logical NOT on all given filters combined by AND.
+  """
   NOT: [UserWhereInput!]
   id: ID
 
-  """All values that are not equal to given value."""
+  """
+  All values that are not equal to given value.
+  """
   id_not: ID
 
-  """All values that are contained in given list."""
+  """
+  All values that are contained in given list.
+  """
   id_in: [ID!]
 
-  """All values that are not contained in given list."""
+  """
+  All values that are not contained in given list.
+  """
   id_not_in: [ID!]
 
-  """All values less than the given value."""
+  """
+  All values less than the given value.
+  """
   id_lt: ID
 
-  """All values less than or equal the given value."""
+  """
+  All values less than or equal the given value.
+  """
   id_lte: ID
 
-  """All values greater than the given value."""
+  """
+  All values greater than the given value.
+  """
   id_gt: ID
 
-  """All values greater than or equal the given value."""
+  """
+  All values greater than or equal the given value.
+  """
   id_gte: ID
 
-  """All values containing the given string."""
+  """
+  All values containing the given string.
+  """
   id_contains: ID
 
-  """All values not containing the given string."""
+  """
+  All values not containing the given string.
+  """
   id_not_contains: ID
 
-  """All values starting with the given string."""
+  """
+  All values starting with the given string.
+  """
   id_starts_with: ID
 
-  """All values not starting with the given string."""
+  """
+  All values not starting with the given string.
+  """
   id_not_starts_with: ID
 
-  """All values ending with the given string."""
+  """
+  All values ending with the given string.
+  """
   id_ends_with: ID
 
-  """All values not ending with the given string."""
+  """
+  All values not ending with the given string.
+  """
   id_not_ends_with: ID
   email: String
 
-  """All values that are not equal to given value."""
+  """
+  All values that are not equal to given value.
+  """
   email_not: String
 
-  """All values that are contained in given list."""
+  """
+  All values that are contained in given list.
+  """
   email_in: [String!]
 
-  """All values that are not contained in given list."""
+  """
+  All values that are not contained in given list.
+  """
   email_not_in: [String!]
 
-  """All values less than the given value."""
+  """
+  All values less than the given value.
+  """
   email_lt: String
 
-  """All values less than or equal the given value."""
+  """
+  All values less than or equal the given value.
+  """
   email_lte: String
 
-  """All values greater than the given value."""
+  """
+  All values greater than the given value.
+  """
   email_gt: String
 
-  """All values greater than or equal the given value."""
+  """
+  All values greater than or equal the given value.
+  """
   email_gte: String
 
-  """All values containing the given string."""
+  """
+  All values containing the given string.
+  """
   email_contains: String
 
-  """All values not containing the given string."""
+  """
+  All values not containing the given string.
+  """
   email_not_contains: String
 
-  """All values starting with the given string."""
+  """
+  All values starting with the given string.
+  """
   email_starts_with: String
 
-  """All values not starting with the given string."""
+  """
+  All values not starting with the given string.
+  """
   email_not_starts_with: String
 
-  """All values ending with the given string."""
+  """
+  All values ending with the given string.
+  """
   email_ends_with: String
 
-  """All values not ending with the given string."""
+  """
+  All values not ending with the given string.
+  """
   email_not_ends_with: String
   password: String
 
-  """All values that are not equal to given value."""
+  """
+  All values that are not equal to given value.
+  """
   password_not: String
 
-  """All values that are contained in given list."""
+  """
+  All values that are contained in given list.
+  """
   password_in: [String!]
 
-  """All values that are not contained in given list."""
+  """
+  All values that are not contained in given list.
+  """
   password_not_in: [String!]
 
-  """All values less than the given value."""
+  """
+  All values less than the given value.
+  """
   password_lt: String
 
-  """All values less than or equal the given value."""
+  """
+  All values less than or equal the given value.
+  """
   password_lte: String
 
-  """All values greater than the given value."""
+  """
+  All values greater than the given value.
+  """
   password_gt: String
 
-  """All values greater than or equal the given value."""
+  """
+  All values greater than or equal the given value.
+  """
   password_gte: String
 
-  """All values containing the given string."""
+  """
+  All values containing the given string.
+  """
   password_contains: String
 
-  """All values not containing the given string."""
+  """
+  All values not containing the given string.
+  """
   password_not_contains: String
 
-  """All values starting with the given string."""
+  """
+  All values starting with the given string.
+  """
   password_starts_with: String
 
-  """All values not starting with the given string."""
+  """
+  All values not starting with the given string.
+  """
   password_not_starts_with: String
 
-  """All values ending with the given string."""
+  """
+  All values ending with the given string.
+  """
   password_ends_with: String
 
-  """All values not ending with the given string."""
+  """
+  All values not ending with the given string.
+  """
   password_not_ends_with: String
   name: String
 
-  """All values that are not equal to given value."""
+  """
+  All values that are not equal to given value.
+  """
   name_not: String
 
-  """All values that are contained in given list."""
+  """
+  All values that are contained in given list.
+  """
   name_in: [String!]
 
-  """All values that are not contained in given list."""
+  """
+  All values that are not contained in given list.
+  """
   name_not_in: [String!]
 
-  """All values less than the given value."""
+  """
+  All values less than the given value.
+  """
   name_lt: String
 
-  """All values less than or equal the given value."""
+  """
+  All values less than or equal the given value.
+  """
   name_lte: String
 
-  """All values greater than the given value."""
+  """
+  All values greater than the given value.
+  """
   name_gt: String
 
-  """All values greater than or equal the given value."""
+  """
+  All values greater than or equal the given value.
+  """
   name_gte: String
 
-  """All values containing the given string."""
+  """
+  All values containing the given string.
+  """
   name_contains: String
 
-  """All values not containing the given string."""
+  """
+  All values not containing the given string.
+  """
   name_not_contains: String
 
-  """All values starting with the given string."""
+  """
+  All values starting with the given string.
+  """
   name_starts_with: String
 
-  """All values not starting with the given string."""
+  """
+  All values not starting with the given string.
+  """
   name_not_starts_with: String
 
-  """All values ending with the given string."""
+  """
+  All values ending with the given string.
+  """
   name_ends_with: String
 
-  """All values not ending with the given string."""
+  """
+  All values not ending with the given string.
+  """
   name_not_ends_with: String
   posts_every: PostWhereInput
   posts_some: PostWhereInput

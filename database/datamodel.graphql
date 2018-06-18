@@ -15,3 +15,52 @@ type User {
   name: String!
   posts: [Post!]!
 }
+
+type Team {
+  id: ID! @unique
+  name: String! @unique
+  pokemons: [Pokemon!]!
+  owner: User
+}
+
+type Pokemon {
+  # Every pokemon has a unique ID
+  id: ID! @unique
+  # The name of our little friend!
+  name: String! @unique
+  # The classification is the "Type" of pokemon
+  classification: String!
+  # The full path to the CDN hosting Pokemon art from the Pokedex
+  img: String!
+  # The "Type" of Pokemon, generally a combination of types.
+  type: [String!]
+  # The Height of the Pokemon in Inches
+  height: String!
+  # The Weight of the Pokemon in (who knows?)
+  weight: String!
+  # The "Happiness" of a Pokemon out of 100%
+  happiness: String!
+  # The level of damage the Pokemon recevies based upon the numeric
+  # values that are provided.
+  damages: Damage!
+}
+
+type Damage {
+  normal: String
+  fire: String
+  water: String
+  electric: String
+  grass: String
+  ice: String
+  fight: String
+  poison: String
+  ground: String
+  flying: String
+  psychic: String
+  bug: String
+  rock: String
+  ghost: String
+  dragon: String
+  dark: String
+  steel: String
+}
